@@ -15,9 +15,13 @@ $todos = $_SESSION['todos'] ?? [];
 <body>
   <a href="new.php">Adicionar Novo</a>
   <ul>
-    <?php foreach ($todos as $todo) { ?>
+    <?php foreach ($todos as $position => $todo) { ?>
       <li>
-        <?= $todo?>
+        <?= $todo?> 
+        <form action="delete-todo.php" method="post">
+          <input type="hidden" name="id" value="<?= $position  ?>">
+          <button>Excluir</button>
+        </form>
       </li>
     <?php } ?>
   </ul>
