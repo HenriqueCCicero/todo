@@ -1,7 +1,3 @@
-<?php
-session_start();
-$todos = $_SESSION['todos'] ?? [];
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,14 +9,11 @@ $todos = $_SESSION['todos'] ?? [];
 </head>
 
 <body>
-  <a href="new.php">Adicionar Novo</a>
-  <ul>
-    <?php foreach ($todos as $todo) { ?>
-      <li>
-        <?= $todo?>
-      </li>
-    <?php } ?>
-  </ul>
+  <form action="create-todo.php" method="post">
+    <input type="text" name="todo" placeholder="Digite uma Tarefa" required>
+    <button>Adicionar</button>
+
+  </form>
 </body>
 
 </html>
